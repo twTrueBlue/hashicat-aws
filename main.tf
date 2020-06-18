@@ -3,6 +3,12 @@ provider "aws" {
   region  = var.region
 }
 
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "2.39.0"
+  # insert the 12 required variables here
+}
+
 resource aws_vpc "hashicat" {
   cidr_block           = var.address_space
   enable_dns_hostnames = true
